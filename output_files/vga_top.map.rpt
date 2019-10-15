@@ -1,0 +1,846 @@
+Analysis & Synthesis report for vga_top
+Tue Oct 15 12:26:04 2019
+Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. Analysis & Synthesis RAM Summary
+  9. User-Specified and Inferred Latches
+ 10. General Register Statistics
+ 11. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 12. Source assignments for sprite1_top:sprite_player1|rom_sprite:ROM|altsyncram:altsyncram_component|altsyncram_5bi1:auto_generated
+ 13. Source assignments for sprite2_top:sprite_player2|rom_sprite_2:ROM|altsyncram:altsyncram_component|altsyncram_6bi1:auto_generated
+ 14. Parameter Settings for User Entity Instance: sprite1_top:sprite_player1|rom_sprite:ROM|altsyncram:altsyncram_component
+ 15. Parameter Settings for User Entity Instance: sprite2_top:sprite_player2|rom_sprite_2:ROM|altsyncram:altsyncram_component
+ 16. altsyncram Parameter Settings by Entity Instance
+ 17. Port Connectivity Checks: "mux4:mux_4"
+ 18. Port Connectivity Checks: "screen:VGA_screen"
+ 19. Port Connectivity Checks: "pos_to_sprite:pos_sprite"
+ 20. Port Connectivity Checks: "vga_controller:vga|synq:VGA_Synq"
+ 21. Port Connectivity Checks: "vga_controller:vga|vertical_counter:VGA_Verti"
+ 22. Port Connectivity Checks: "vga_controller:vga|horizontal_counter:VGA_Horiz"
+ 23. Post-Synthesis Netlist Statistics for Top Partition
+ 24. Elapsed Time Per Partition
+ 25. Analysis & Synthesis Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2018  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details.
+
+
+
++-------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                  ;
++---------------------------------+---------------------------------------------+
+; Analysis & Synthesis Status     ; Successful - Tue Oct 15 12:26:04 2019       ;
+; Quartus Prime Version           ; 18.1.0 Build 625 09/12/2018 SJ Lite Edition ;
+; Revision Name                   ; vga_top                                     ;
+; Top-level Entity Name           ; game_top                                    ;
+; Family                          ; Cyclone V                                   ;
+; Logic utilization (in ALMs)     ; N/A                                         ;
+; Total registers                 ; 42                                          ;
+; Total pins                      ; 47                                          ;
+; Total virtual pins              ; 0                                           ;
+; Total block memory bits         ; 12,288                                      ;
+; Total DSP Blocks                ; 0                                           ;
+; Total HSSI RX PCSs              ; 0                                           ;
+; Total HSSI PMA RX Deserializers ; 0                                           ;
+; Total HSSI TX PCSs              ; 0                                           ;
+; Total HSSI PMA TX Serializers   ; 0                                           ;
+; Total PLLs                      ; 0                                           ;
+; Total DLLs                      ; 0                                           ;
++---------------------------------+---------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                                             ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                                          ; Setting            ; Default Value      ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                                          ; 5CSEMA5F31C6       ;                    ;
+; Top-level entity name                                                           ; game_top           ; vga_top            ;
+; Family name                                                                     ; Cyclone V          ; Cyclone V          ;
+; Use smart compilation                                                           ; Off                ; Off                ;
+; Enable parallel Assembler and Timing Analyzer during compilation                ; On                 ; On                 ;
+; Enable compact report table                                                     ; Off                ; Off                ;
+; Restructure Multiplexers                                                        ; Auto               ; Auto               ;
+; MLAB Add Timing Constraints For Mixed-Port Feed-Through Mode Setting Don't Care ; Off                ; Off                ;
+; Create Debugging Nodes for IP Cores                                             ; Off                ; Off                ;
+; Preserve fewer node names                                                       ; On                 ; On                 ;
+; Intel FPGA IP Evaluation Mode                                                   ; Enable             ; Enable             ;
+; Verilog Version                                                                 ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                                    ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                                        ; Auto               ; Auto               ;
+; Safe State Machine                                                              ; Off                ; Off                ;
+; Extract Verilog State Machines                                                  ; On                 ; On                 ;
+; Extract VHDL State Machines                                                     ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                               ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                                      ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                                  ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                                         ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                                       ; On                 ; On                 ;
+; Parallel Synthesis                                                              ; On                 ; On                 ;
+; DSP Block Balancing                                                             ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                                              ; On                 ; On                 ;
+; Power-Up Don't Care                                                             ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                                    ; Off                ; Off                ;
+; Remove Duplicate Registers                                                      ; On                 ; On                 ;
+; Ignore CARRY Buffers                                                            ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                                          ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                                           ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                                       ; Off                ; Off                ;
+; Ignore LCELL Buffers                                                            ; Off                ; Off                ;
+; Ignore SOFT Buffers                                                             ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                                  ; Off                ; Off                ;
+; Optimization Technique                                                          ; Balanced           ; Balanced           ;
+; Carry Chain Length                                                              ; 70                 ; 70                 ;
+; Auto Carry Chains                                                               ; On                 ; On                 ;
+; Auto Open-Drain Pins                                                            ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                                           ; Off                ; Off                ;
+; Auto ROM Replacement                                                            ; On                 ; On                 ;
+; Auto RAM Replacement                                                            ; On                 ; On                 ;
+; Auto DSP Block Replacement                                                      ; On                 ; On                 ;
+; Auto Shift Register Replacement                                                 ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                                 ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                                   ; On                 ; On                 ;
+; Strict RAM Replacement                                                          ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                               ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                                          ; Off                ; Off                ;
+; Auto Resource Sharing                                                           ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                                              ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                                              ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                                   ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing                             ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                               ; Off                ; Off                ;
+; Timing-Driven Synthesis                                                         ; On                 ; On                 ;
+; Report Parameter Settings                                                       ; On                 ; On                 ;
+; Report Source Assignments                                                       ; On                 ; On                 ;
+; Report Connectivity Checks                                                      ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                                              ; Off                ; Off                ;
+; Synchronization Register Chain Length                                           ; 3                  ; 3                  ;
+; Power Optimization During Synthesis                                             ; Normal compilation ; Normal compilation ;
+; HDL message level                                                               ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                                 ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report                        ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report                              ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report                       ; 100                ; 100                ;
+; Clock MUX Protection                                                            ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                                     ; Off                ; Off                ;
+; Block Design Naming                                                             ; Auto               ; Auto               ;
+; SDC constraint protection                                                       ; Off                ; Off                ;
+; Synthesis Effort                                                                ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal                    ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                                            ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                                              ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                                     ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                                          ; On                 ; On                 ;
+; Automatic Parallel Synthesis                                                    ; On                 ; On                 ;
+; Partial Reconfiguration Bitstream ID                                            ; Off                ; Off                ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 4           ;
+; Maximum allowed            ; 2           ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 2           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processor 2            ;   0.0%      ;
++----------------------------+-------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                            ;
++----------------------------------+-----------------+----------------------------------------+---------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                              ; File Name with Absolute Path                                              ; Library ;
++----------------------------------+-----------------+----------------------------------------+---------------------------------------------------------------------------+---------+
+; ../sprite/rom_sprite_2.v         ; yes             ; User Wizard-Generated File             ; C:/Users/DELL/Desktop/sprite/rom_sprite_2.v                               ;         ;
+; ../sprite/visibleLogic.sv        ; yes             ; User SystemVerilog HDL File            ; C:/Users/DELL/Desktop/sprite/visibleLogic.sv                              ;         ;
+; ../sprite/rom_sprite.v           ; yes             ; User Wizard-Generated File             ; C:/Users/DELL/Desktop/sprite/rom_sprite.v                                 ;         ;
+; ../sprite/deco.sv                ; yes             ; User SystemVerilog HDL File            ; C:/Users/DELL/Desktop/sprite/deco.sv                                      ;         ;
+; ../sprite/addressGen.sv          ; yes             ; User SystemVerilog HDL File            ; C:/Users/DELL/Desktop/sprite/addressGen.sv                                ;         ;
+; vertical_counter.sv              ; yes             ; User SystemVerilog HDL File            ; C:/Users/DELL/Desktop/VGA_Controller/vertical_counter.sv                  ;         ;
+; synq.sv                          ; yes             ; User SystemVerilog HDL File            ; C:/Users/DELL/Desktop/VGA_Controller/synq.sv                              ;         ;
+; screen.sv                        ; yes             ; User SystemVerilog HDL File            ; C:/Users/DELL/Desktop/VGA_Controller/screen.sv                            ;         ;
+; lines.sv                         ; yes             ; User SystemVerilog HDL File            ; C:/Users/DELL/Desktop/VGA_Controller/lines.sv                             ;         ;
+; horizontal_counter.sv            ; yes             ; User SystemVerilog HDL File            ; C:/Users/DELL/Desktop/VGA_Controller/horizontal_counter.sv                ;         ;
+; clock_divider_.sv                ; yes             ; User SystemVerilog HDL File            ; C:/Users/DELL/Desktop/VGA_Controller/clock_divider_.sv                    ;         ;
+; vga_controller.sv                ; yes             ; User SystemVerilog HDL File            ; C:/Users/DELL/Desktop/VGA_Controller/vga_controller.sv                    ;         ;
+; game_top.sv                      ; yes             ; User SystemVerilog HDL File            ; C:/Users/DELL/Desktop/VGA_Controller/game_top.sv                          ;         ;
+; Mux2.sv                          ; yes             ; User SystemVerilog HDL File            ; C:/Users/DELL/Desktop/VGA_Controller/Mux2.sv                              ;         ;
+; position_adder.sv                ; yes             ; User SystemVerilog HDL File            ; C:/Users/DELL/Desktop/VGA_Controller/position_adder.sv                    ;         ;
+; ../sprite/sprite1_top.sv         ; yes             ; User SystemVerilog HDL File            ; C:/Users/DELL/Desktop/sprite/sprite1_top.sv                               ;         ;
+; sprite2_top.sv                   ; yes             ; User SystemVerilog HDL File            ; C:/Users/DELL/Desktop/VGA_Controller/sprite2_top.sv                       ;         ;
+; mux4.sv                          ; yes             ; User SystemVerilog HDL File            ; C:/Users/DELL/Desktop/VGA_Controller/mux4.sv                              ;         ;
+; sevenseg.sv                      ; yes             ; User SystemVerilog HDL File            ; C:/Users/DELL/Desktop/VGA_Controller/sevenseg.sv                          ;         ;
+; pos_to_sprite.sv                 ; yes             ; User SystemVerilog HDL File            ; C:/Users/DELL/Desktop/VGA_Controller/pos_to_sprite.sv                     ;         ;
+; counter_range_xy.sv              ; yes             ; User SystemVerilog HDL File            ; C:/Users/DELL/Desktop/VGA_Controller/counter_range_xy.sv                  ;         ;
+; sp_and_vis.sv                    ; yes             ; User SystemVerilog HDL File            ; C:/Users/DELL/Desktop/VGA_Controller/sp_and_vis.sv                        ;         ;
+; altsyncram.tdf                   ; yes             ; Megafunction                           ; d:/programs/quartus/quartus/libraries/megafunctions/altsyncram.tdf        ;         ;
+; stratix_ram_block.inc            ; yes             ; Megafunction                           ; d:/programs/quartus/quartus/libraries/megafunctions/stratix_ram_block.inc ;         ;
+; lpm_mux.inc                      ; yes             ; Megafunction                           ; d:/programs/quartus/quartus/libraries/megafunctions/lpm_mux.inc           ;         ;
+; lpm_decode.inc                   ; yes             ; Megafunction                           ; d:/programs/quartus/quartus/libraries/megafunctions/lpm_decode.inc        ;         ;
+; aglobal181.inc                   ; yes             ; Megafunction                           ; d:/programs/quartus/quartus/libraries/megafunctions/aglobal181.inc        ;         ;
+; a_rdenreg.inc                    ; yes             ; Megafunction                           ; d:/programs/quartus/quartus/libraries/megafunctions/a_rdenreg.inc         ;         ;
+; altrom.inc                       ; yes             ; Megafunction                           ; d:/programs/quartus/quartus/libraries/megafunctions/altrom.inc            ;         ;
+; altram.inc                       ; yes             ; Megafunction                           ; d:/programs/quartus/quartus/libraries/megafunctions/altram.inc            ;         ;
+; altdpram.inc                     ; yes             ; Megafunction                           ; d:/programs/quartus/quartus/libraries/megafunctions/altdpram.inc          ;         ;
+; db/altsyncram_5bi1.tdf           ; yes             ; Auto-Generated Megafunction            ; C:/Users/DELL/Desktop/VGA_Controller/db/altsyncram_5bi1.tdf               ;         ;
+; /users/dell/desktop/player1.mif  ; yes             ; Auto-Found Memory Initialization File  ; /users/dell/desktop/player1.mif                                           ;         ;
+; db/altsyncram_6bi1.tdf           ; yes             ; Auto-Generated Megafunction            ; C:/Users/DELL/Desktop/VGA_Controller/db/altsyncram_6bi1.tdf               ;         ;
+; /users/dell/desktop/player2.mif  ; yes             ; Auto-Found Memory Initialization File  ; /users/dell/desktop/player2.mif                                           ;         ;
++----------------------------------+-----------------+----------------------------------------+---------------------------------------------------------------------------+---------+
+
+
++--------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                                                            ;
++---------------------------------------------+----------------------------------------------------------+
+; Resource                                    ; Usage                                                    ;
++---------------------------------------------+----------------------------------------------------------+
+; Estimate of Logic utilization (ALMs needed) ; 106                                                      ;
+;                                             ;                                                          ;
+; Combinational ALUT usage for logic          ; 177                                                      ;
+;     -- 7 input functions                    ; 2                                                        ;
+;     -- 6 input functions                    ; 33                                                       ;
+;     -- 5 input functions                    ; 22                                                       ;
+;     -- 4 input functions                    ; 20                                                       ;
+;     -- <=3 input functions                  ; 100                                                      ;
+;                                             ;                                                          ;
+; Dedicated logic registers                   ; 42                                                       ;
+;                                             ;                                                          ;
+; I/O pins                                    ; 47                                                       ;
+; Total MLAB memory bits                      ; 0                                                        ;
+; Total block memory bits                     ; 12288                                                    ;
+;                                             ;                                                          ;
+; Total DSP Blocks                            ; 0                                                        ;
+;                                             ;                                                          ;
+; Maximum fan-out node                        ; vga_controller:vga|clock_divider_:VGA_Clock|dividier_clk ;
+; Maximum fan-out                             ; 35                                                       ;
+; Total fan-out                               ; 906                                                      ;
+; Average fan-out                             ; 2.87                                                     ;
++---------------------------------------------+----------------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                                            ;
++----------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+--------------------------------------------------------------------------------------------------------------------+--------------------+--------------+
+; Compilation Hierarchy Node                   ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                                ; Entity Name        ; Library Name ;
++----------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+--------------------------------------------------------------------------------------------------------------------+--------------------+--------------+
+; |game_top                                    ; 177 (0)             ; 42 (0)                    ; 12288             ; 0          ; 47   ; 0            ; |game_top                                                                                                          ; game_top           ; work         ;
+;    |Mux2:mux2|                               ; 4 (4)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |game_top|Mux2:mux2                                                                                                ; Mux2               ; work         ;
+;    |counter_range_xy:counter_xy|             ; 43 (43)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |game_top|counter_range_xy:counter_xy                                                                              ; counter_range_xy   ; work         ;
+;    |mux4:mux_4|                              ; 33 (33)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |game_top|mux4:mux_4                                                                                               ; mux4               ; work         ;
+;    |position_adder:pos_adder|                ; 8 (8)               ; 8 (8)                     ; 0                 ; 0          ; 0    ; 0            ; |game_top|position_adder:pos_adder                                                                                 ; position_adder     ; work         ;
+;    |screen:VGA_screen|                       ; 12 (0)              ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |game_top|screen:VGA_screen                                                                                        ; screen             ; work         ;
+;       |lines:VGA_lines|                      ; 12 (12)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |game_top|screen:VGA_screen|lines:VGA_lines                                                                        ; lines              ; work         ;
+;    |sevenseg:display_deco|                   ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |game_top|sevenseg:display_deco                                                                                    ; sevenseg           ; work         ;
+;    |sprite1_top:sprite_player1|              ; 23 (0)              ; 0 (0)                     ; 12288             ; 0          ; 0    ; 0            ; |game_top|sprite1_top:sprite_player1                                                                               ; sprite1_top        ; work         ;
+;       |addressGen:ADDRESSS|                  ; 20 (20)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |game_top|sprite1_top:sprite_player1|addressGen:ADDRESSS                                                           ; addressGen         ; work         ;
+;       |rom_sprite:ROM|                       ; 0 (0)               ; 0 (0)                     ; 12288             ; 0          ; 0    ; 0            ; |game_top|sprite1_top:sprite_player1|rom_sprite:ROM                                                                ; rom_sprite         ; work         ;
+;          |altsyncram:altsyncram_component|   ; 0 (0)               ; 0 (0)                     ; 12288             ; 0          ; 0    ; 0            ; |game_top|sprite1_top:sprite_player1|rom_sprite:ROM|altsyncram:altsyncram_component                                ; altsyncram         ; work         ;
+;             |altsyncram_5bi1:auto_generated| ; 0 (0)               ; 0 (0)                     ; 12288             ; 0          ; 0    ; 0            ; |game_top|sprite1_top:sprite_player1|rom_sprite:ROM|altsyncram:altsyncram_component|altsyncram_5bi1:auto_generated ; altsyncram_5bi1    ; work         ;
+;       |visibleLogic:VIS|                     ; 3 (3)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |game_top|sprite1_top:sprite_player1|visibleLogic:VIS                                                              ; visibleLogic       ; work         ;
+;    |vga_controller:vga|                      ; 47 (0)              ; 34 (0)                    ; 0                 ; 0          ; 0    ; 0            ; |game_top|vga_controller:vga                                                                                       ; vga_controller     ; work         ;
+;       |clock_divider_:VGA_Clock|             ; 1 (1)               ; 1 (1)                     ; 0                 ; 0          ; 0    ; 0            ; |game_top|vga_controller:vga|clock_divider_:VGA_Clock                                                              ; clock_divider_     ; work         ;
+;       |horizontal_counter:VGA_Horiz|         ; 18 (18)             ; 17 (17)                   ; 0                 ; 0          ; 0    ; 0            ; |game_top|vga_controller:vga|horizontal_counter:VGA_Horiz                                                          ; horizontal_counter ; work         ;
+;       |synq:VGA_Synq|                        ; 9 (9)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |game_top|vga_controller:vga|synq:VGA_Synq                                                                         ; synq               ; work         ;
+;       |vertical_counter:VGA_Verti|           ; 19 (19)             ; 16 (16)                   ; 0                 ; 0          ; 0    ; 0            ; |game_top|vga_controller:vga|vertical_counter:VGA_Verti                                                            ; vertical_counter   ; work         ;
++----------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+--------------------------------------------------------------------------------------------------------------------+--------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis RAM Summary                                                                                                                                                                                                          ;
++---------------------------------------------------------------------------------------------------------------------+------+------+--------------+--------------+--------------+--------------+-------+-----------------------------------+
+; Name                                                                                                                ; Type ; Mode ; Port A Depth ; Port A Width ; Port B Depth ; Port B Width ; Size  ; MIF                               ;
++---------------------------------------------------------------------------------------------------------------------+------+------+--------------+--------------+--------------+--------------+-------+-----------------------------------+
+; sprite1_top:sprite_player1|rom_sprite:ROM|altsyncram:altsyncram_component|altsyncram_5bi1:auto_generated|ALTSYNCRAM ; AUTO ; ROM  ; 4096         ; 3            ; --           ; --           ; 12288 ; C:/Users/DELL/Desktop/Player1.mif ;
++---------------------------------------------------------------------------------------------------------------------+------+------+--------------+--------------+--------------+--------------+-------+-----------------------------------+
+
+
++----------------------------------------------------------------------------------------------------+
+; User-Specified and Inferred Latches                                                                ;
++-----------------------------------------------------+---------------------+------------------------+
+; Latch Name                                          ; Latch Enable Signal ; Free of Timing Hazards ;
++-----------------------------------------------------+---------------------+------------------------+
+; counter_range_xy:counter_xy|posx[6]                 ; GND                 ; yes                    ;
+; counter_range_xy:counter_xy|posx[8]                 ; GND                 ; yes                    ;
+; counter_range_xy:counter_xy|posx[9]                 ; GND                 ; yes                    ;
+; counter_range_xy:counter_xy|posy[6]                 ; GND                 ; yes                    ;
+; counter_range_xy:counter_xy|posy[7]                 ; GND                 ; yes                    ;
+; counter_range_xy:counter_xy|posy[8]                 ; GND                 ; yes                    ;
+; counter_range_xy:counter_xy|posx[0]                 ; GND                 ; yes                    ;
+; counter_range_xy:counter_xy|posx[1]                 ; GND                 ; yes                    ;
+; counter_range_xy:counter_xy|posx[5]                 ; GND                 ; yes                    ;
+; counter_range_xy:counter_xy|posy[0]                 ; GND                 ; yes                    ;
+; counter_range_xy:counter_xy|posy[1]                 ; GND                 ; yes                    ;
+; counter_range_xy:counter_xy|posy[2]                 ; GND                 ; yes                    ;
+; counter_range_xy:counter_xy|posy[3]                 ; GND                 ; yes                    ;
+; counter_range_xy:counter_xy|posy[4]                 ; GND                 ; yes                    ;
+; counter_range_xy:counter_xy|posy[5]                 ; GND                 ; yes                    ;
+; Number of user-specified and inferred latches = 15  ;                     ;                        ;
++-----------------------------------------------------+---------------------+------------------------+
+Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 42    ;
+; Number of registers using Synchronous Clear  ; 32    ;
+; Number of registers using Synchronous Load   ; 0     ;
+; Number of registers using Asynchronous Clear ; 0     ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 16    ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                              ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                    ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------+
+; 3:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |game_top|counter_range_xy:counter_xy|posy[7] ;
+; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |game_top|counter_range_xy:counter_xy|posy[6] ;
+; 9:1                ; 14 bits   ; 84 LEs        ; 84 LEs               ; 0 LEs                  ; No         ; |game_top|mux4:mux_4|out                      ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 10 LEs               ; 0 LEs                  ; No         ; |game_top|counter_range_xy:counter_xy|posx[9] ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------+
+; Source assignments for sprite1_top:sprite_player1|rom_sprite:ROM|altsyncram:altsyncram_component|altsyncram_5bi1:auto_generated ;
++---------------------------------+--------------------+------+-------------------------------------------------------------------+
+; Assignment                      ; Value              ; From ; To                                                                ;
++---------------------------------+--------------------+------+-------------------------------------------------------------------+
+; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                                                                 ;
++---------------------------------+--------------------+------+-------------------------------------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------+
+; Source assignments for sprite2_top:sprite_player2|rom_sprite_2:ROM|altsyncram:altsyncram_component|altsyncram_6bi1:auto_generated ;
++---------------------------------+--------------------+------+---------------------------------------------------------------------+
+; Assignment                      ; Value              ; From ; To                                                                  ;
++---------------------------------+--------------------+------+---------------------------------------------------------------------+
+; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                                                                   ;
++---------------------------------+--------------------+------+---------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: sprite1_top:sprite_player1|rom_sprite:ROM|altsyncram:altsyncram_component ;
++------------------------------------+-----------------------------------+-----------------------------------------------+
+; Parameter Name                     ; Value                             ; Type                                          ;
++------------------------------------+-----------------------------------+-----------------------------------------------+
+; BYTE_SIZE_BLOCK                    ; 8                                 ; Untyped                                       ;
+; AUTO_CARRY_CHAINS                  ; ON                                ; AUTO_CARRY                                    ;
+; IGNORE_CARRY_BUFFERS               ; OFF                               ; IGNORE_CARRY                                  ;
+; AUTO_CASCADE_CHAINS                ; ON                                ; AUTO_CASCADE                                  ;
+; IGNORE_CASCADE_BUFFERS             ; OFF                               ; IGNORE_CASCADE                                ;
+; WIDTH_BYTEENA                      ; 1                                 ; Untyped                                       ;
+; OPERATION_MODE                     ; ROM                               ; Untyped                                       ;
+; WIDTH_A                            ; 3                                 ; Signed Integer                                ;
+; WIDTHAD_A                          ; 12                                ; Signed Integer                                ;
+; NUMWORDS_A                         ; 4096                              ; Signed Integer                                ;
+; OUTDATA_REG_A                      ; UNREGISTERED                      ; Untyped                                       ;
+; ADDRESS_ACLR_A                     ; NONE                              ; Untyped                                       ;
+; OUTDATA_ACLR_A                     ; NONE                              ; Untyped                                       ;
+; WRCONTROL_ACLR_A                   ; NONE                              ; Untyped                                       ;
+; INDATA_ACLR_A                      ; NONE                              ; Untyped                                       ;
+; BYTEENA_ACLR_A                     ; NONE                              ; Untyped                                       ;
+; WIDTH_B                            ; 1                                 ; Untyped                                       ;
+; WIDTHAD_B                          ; 1                                 ; Untyped                                       ;
+; NUMWORDS_B                         ; 1                                 ; Untyped                                       ;
+; INDATA_REG_B                       ; CLOCK1                            ; Untyped                                       ;
+; WRCONTROL_WRADDRESS_REG_B          ; CLOCK1                            ; Untyped                                       ;
+; RDCONTROL_REG_B                    ; CLOCK1                            ; Untyped                                       ;
+; ADDRESS_REG_B                      ; CLOCK1                            ; Untyped                                       ;
+; OUTDATA_REG_B                      ; UNREGISTERED                      ; Untyped                                       ;
+; BYTEENA_REG_B                      ; CLOCK1                            ; Untyped                                       ;
+; INDATA_ACLR_B                      ; NONE                              ; Untyped                                       ;
+; WRCONTROL_ACLR_B                   ; NONE                              ; Untyped                                       ;
+; ADDRESS_ACLR_B                     ; NONE                              ; Untyped                                       ;
+; OUTDATA_ACLR_B                     ; NONE                              ; Untyped                                       ;
+; RDCONTROL_ACLR_B                   ; NONE                              ; Untyped                                       ;
+; BYTEENA_ACLR_B                     ; NONE                              ; Untyped                                       ;
+; WIDTH_BYTEENA_A                    ; 1                                 ; Signed Integer                                ;
+; WIDTH_BYTEENA_B                    ; 1                                 ; Untyped                                       ;
+; RAM_BLOCK_TYPE                     ; AUTO                              ; Untyped                                       ;
+; BYTE_SIZE                          ; 8                                 ; Untyped                                       ;
+; READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                         ; Untyped                                       ;
+; READ_DURING_WRITE_MODE_PORT_A      ; NEW_DATA_NO_NBE_READ              ; Untyped                                       ;
+; READ_DURING_WRITE_MODE_PORT_B      ; NEW_DATA_NO_NBE_READ              ; Untyped                                       ;
+; INIT_FILE                          ; C:/Users/DELL/Desktop/Player1.mif ; Untyped                                       ;
+; INIT_FILE_LAYOUT                   ; PORT_A                            ; Untyped                                       ;
+; MAXIMUM_DEPTH                      ; 0                                 ; Untyped                                       ;
+; CLOCK_ENABLE_INPUT_A               ; BYPASS                            ; Untyped                                       ;
+; CLOCK_ENABLE_INPUT_B               ; NORMAL                            ; Untyped                                       ;
+; CLOCK_ENABLE_OUTPUT_A              ; BYPASS                            ; Untyped                                       ;
+; CLOCK_ENABLE_OUTPUT_B              ; NORMAL                            ; Untyped                                       ;
+; CLOCK_ENABLE_CORE_A                ; USE_INPUT_CLKEN                   ; Untyped                                       ;
+; CLOCK_ENABLE_CORE_B                ; USE_INPUT_CLKEN                   ; Untyped                                       ;
+; ENABLE_ECC                         ; FALSE                             ; Untyped                                       ;
+; ECC_PIPELINE_STAGE_ENABLED         ; FALSE                             ; Untyped                                       ;
+; WIDTH_ECCSTATUS                    ; 3                                 ; Untyped                                       ;
+; DEVICE_FAMILY                      ; Cyclone V                         ; Untyped                                       ;
+; CBXI_PARAMETER                     ; altsyncram_5bi1                   ; Untyped                                       ;
++------------------------------------+-----------------------------------+-----------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: sprite2_top:sprite_player2|rom_sprite_2:ROM|altsyncram:altsyncram_component ;
++------------------------------------+-----------------------------------+-------------------------------------------------+
+; Parameter Name                     ; Value                             ; Type                                            ;
++------------------------------------+-----------------------------------+-------------------------------------------------+
+; BYTE_SIZE_BLOCK                    ; 8                                 ; Untyped                                         ;
+; AUTO_CARRY_CHAINS                  ; ON                                ; AUTO_CARRY                                      ;
+; IGNORE_CARRY_BUFFERS               ; OFF                               ; IGNORE_CARRY                                    ;
+; AUTO_CASCADE_CHAINS                ; ON                                ; AUTO_CASCADE                                    ;
+; IGNORE_CASCADE_BUFFERS             ; OFF                               ; IGNORE_CASCADE                                  ;
+; WIDTH_BYTEENA                      ; 1                                 ; Untyped                                         ;
+; OPERATION_MODE                     ; ROM                               ; Untyped                                         ;
+; WIDTH_A                            ; 3                                 ; Signed Integer                                  ;
+; WIDTHAD_A                          ; 12                                ; Signed Integer                                  ;
+; NUMWORDS_A                         ; 4096                              ; Signed Integer                                  ;
+; OUTDATA_REG_A                      ; UNREGISTERED                      ; Untyped                                         ;
+; ADDRESS_ACLR_A                     ; NONE                              ; Untyped                                         ;
+; OUTDATA_ACLR_A                     ; NONE                              ; Untyped                                         ;
+; WRCONTROL_ACLR_A                   ; NONE                              ; Untyped                                         ;
+; INDATA_ACLR_A                      ; NONE                              ; Untyped                                         ;
+; BYTEENA_ACLR_A                     ; NONE                              ; Untyped                                         ;
+; WIDTH_B                            ; 1                                 ; Untyped                                         ;
+; WIDTHAD_B                          ; 1                                 ; Untyped                                         ;
+; NUMWORDS_B                         ; 1                                 ; Untyped                                         ;
+; INDATA_REG_B                       ; CLOCK1                            ; Untyped                                         ;
+; WRCONTROL_WRADDRESS_REG_B          ; CLOCK1                            ; Untyped                                         ;
+; RDCONTROL_REG_B                    ; CLOCK1                            ; Untyped                                         ;
+; ADDRESS_REG_B                      ; CLOCK1                            ; Untyped                                         ;
+; OUTDATA_REG_B                      ; UNREGISTERED                      ; Untyped                                         ;
+; BYTEENA_REG_B                      ; CLOCK1                            ; Untyped                                         ;
+; INDATA_ACLR_B                      ; NONE                              ; Untyped                                         ;
+; WRCONTROL_ACLR_B                   ; NONE                              ; Untyped                                         ;
+; ADDRESS_ACLR_B                     ; NONE                              ; Untyped                                         ;
+; OUTDATA_ACLR_B                     ; NONE                              ; Untyped                                         ;
+; RDCONTROL_ACLR_B                   ; NONE                              ; Untyped                                         ;
+; BYTEENA_ACLR_B                     ; NONE                              ; Untyped                                         ;
+; WIDTH_BYTEENA_A                    ; 1                                 ; Signed Integer                                  ;
+; WIDTH_BYTEENA_B                    ; 1                                 ; Untyped                                         ;
+; RAM_BLOCK_TYPE                     ; AUTO                              ; Untyped                                         ;
+; BYTE_SIZE                          ; 8                                 ; Untyped                                         ;
+; READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                         ; Untyped                                         ;
+; READ_DURING_WRITE_MODE_PORT_A      ; NEW_DATA_NO_NBE_READ              ; Untyped                                         ;
+; READ_DURING_WRITE_MODE_PORT_B      ; NEW_DATA_NO_NBE_READ              ; Untyped                                         ;
+; INIT_FILE                          ; C:/Users/DELL/Desktop/Player2.mif ; Untyped                                         ;
+; INIT_FILE_LAYOUT                   ; PORT_A                            ; Untyped                                         ;
+; MAXIMUM_DEPTH                      ; 0                                 ; Untyped                                         ;
+; CLOCK_ENABLE_INPUT_A               ; BYPASS                            ; Untyped                                         ;
+; CLOCK_ENABLE_INPUT_B               ; NORMAL                            ; Untyped                                         ;
+; CLOCK_ENABLE_OUTPUT_A              ; BYPASS                            ; Untyped                                         ;
+; CLOCK_ENABLE_OUTPUT_B              ; NORMAL                            ; Untyped                                         ;
+; CLOCK_ENABLE_CORE_A                ; USE_INPUT_CLKEN                   ; Untyped                                         ;
+; CLOCK_ENABLE_CORE_B                ; USE_INPUT_CLKEN                   ; Untyped                                         ;
+; ENABLE_ECC                         ; FALSE                             ; Untyped                                         ;
+; ECC_PIPELINE_STAGE_ENABLED         ; FALSE                             ; Untyped                                         ;
+; WIDTH_ECCSTATUS                    ; 3                                 ; Untyped                                         ;
+; DEVICE_FAMILY                      ; Cyclone V                         ; Untyped                                         ;
+; CBXI_PARAMETER                     ; altsyncram_6bi1                   ; Untyped                                         ;
++------------------------------------+-----------------------------------+-------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------------------------------------------------+
+; altsyncram Parameter Settings by Entity Instance                                                                        ;
++-------------------------------------------+-----------------------------------------------------------------------------+
+; Name                                      ; Value                                                                       ;
++-------------------------------------------+-----------------------------------------------------------------------------+
+; Number of entity instances                ; 2                                                                           ;
+; Entity Instance                           ; sprite1_top:sprite_player1|rom_sprite:ROM|altsyncram:altsyncram_component   ;
+;     -- OPERATION_MODE                     ; ROM                                                                         ;
+;     -- WIDTH_A                            ; 3                                                                           ;
+;     -- NUMWORDS_A                         ; 4096                                                                        ;
+;     -- OUTDATA_REG_A                      ; UNREGISTERED                                                                ;
+;     -- WIDTH_B                            ; 1                                                                           ;
+;     -- NUMWORDS_B                         ; 1                                                                           ;
+;     -- ADDRESS_REG_B                      ; CLOCK1                                                                      ;
+;     -- OUTDATA_REG_B                      ; UNREGISTERED                                                                ;
+;     -- RAM_BLOCK_TYPE                     ; AUTO                                                                        ;
+;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                                                                   ;
+; Entity Instance                           ; sprite2_top:sprite_player2|rom_sprite_2:ROM|altsyncram:altsyncram_component ;
+;     -- OPERATION_MODE                     ; ROM                                                                         ;
+;     -- WIDTH_A                            ; 3                                                                           ;
+;     -- NUMWORDS_A                         ; 4096                                                                        ;
+;     -- OUTDATA_REG_A                      ; UNREGISTERED                                                                ;
+;     -- WIDTH_B                            ; 1                                                                           ;
+;     -- NUMWORDS_B                         ; 1                                                                           ;
+;     -- ADDRESS_REG_B                      ; CLOCK1                                                                      ;
+;     -- OUTDATA_REG_B                      ; UNREGISTERED                                                                ;
+;     -- RAM_BLOCK_TYPE                     ; AUTO                                                                        ;
+;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                                                                   ;
++-------------------------------------------+-----------------------------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "mux4:mux_4"                                                                                                                                    ;
++------+-------+----------+-------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port ; Type  ; Severity ; Details                                                                                                                                         ;
++------+-------+----------+-------------------------------------------------------------------------------------------------------------------------------------------------+
+; en3  ; Input ; Warning  ; Input port expression (23 bits) is smaller than the input port (24 bits) it drives.  Extra input bit(s) "en3[23..23]" will be connected to GND. ;
+; en3  ; Input ; Info     ; Stuck at GND                                                                                                                                    ;
++------+-------+----------+-------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "screen:VGA_screen"                                                                                                                                                    ;
++-----------------+-------+----------+-------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port            ; Type  ; Severity ; Details                                                                                                                                                     ;
++-----------------+-------+----------+-------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; H_Counter_Value ; Input ; Warning  ; Input port expression (10 bits) is smaller than the input port (16 bits) it drives.  Extra input bit(s) "H_Counter_Value[15..10]" will be connected to GND. ;
+; V_Counter_Value ; Input ; Warning  ; Input port expression (10 bits) is smaller than the input port (16 bits) it drives.  Extra input bit(s) "V_Counter_Value[15..10]" will be connected to GND. ;
++-----------------+-------+----------+-------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "pos_to_sprite:pos_sprite"                                                                                                                                                           ;
++----------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port     ; Type  ; Severity ; Details                                                                                                                                                                          ;
++----------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; pos1     ; Input ; Warning  ; Input port expression (2 bits) is wider than the input port (1 bits) it drives.  The 1 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
+; pos1[-1] ; Input ; Info     ; Stuck at VCC                                                                                                                                                                     ;
+; pos2     ; Input ; Warning  ; Input port expression (2 bits) is wider than the input port (1 bits) it drives.  The 1 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
+; pos2[-1] ; Input ; Info     ; Stuck at GND                                                                                                                                                                     ;
+; pos3     ; Input ; Warning  ; Input port expression (2 bits) is wider than the input port (1 bits) it drives.  The 1 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
+; pos4     ; Input ; Warning  ; Input port expression (2 bits) is wider than the input port (1 bits) it drives.  The 1 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
+; pos5     ; Input ; Warning  ; Input port expression (2 bits) is wider than the input port (1 bits) it drives.  The 1 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
+; pos6     ; Input ; Warning  ; Input port expression (2 bits) is wider than the input port (1 bits) it drives.  The 1 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
+; pos7     ; Input ; Warning  ; Input port expression (2 bits) is wider than the input port (1 bits) it drives.  The 1 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
+; pos8     ; Input ; Warning  ; Input port expression (2 bits) is wider than the input port (1 bits) it drives.  The 1 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
+; pos9     ; Input ; Warning  ; Input port expression (2 bits) is wider than the input port (1 bits) it drives.  The 1 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
++----------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "vga_controller:vga|synq:VGA_Synq"                                                                                                                                     ;
++-----------------+-------+----------+-------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port            ; Type  ; Severity ; Details                                                                                                                                                     ;
++-----------------+-------+----------+-------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; H_Counter_Value ; Input ; Warning  ; Input port expression (10 bits) is smaller than the input port (16 bits) it drives.  Extra input bit(s) "H_Counter_Value[15..10]" will be connected to GND. ;
+; V_Counter_Value ; Input ; Warning  ; Input port expression (10 bits) is smaller than the input port (16 bits) it drives.  Extra input bit(s) "V_Counter_Value[15..10]" will be connected to GND. ;
++-----------------+-------+----------+-------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "vga_controller:vga|vertical_counter:VGA_Verti"                                                                                                    ;
++-----------------+--------+----------+----------------------------------------------------------------------------------------------------------------------------------------+
+; Port            ; Type   ; Severity ; Details                                                                                                                                ;
++-----------------+--------+----------+----------------------------------------------------------------------------------------------------------------------------------------+
+; V_Counter_value ; Output ; Warning  ; Output or bidir port (16 bits) is wider than the port expression (10 bits) it drives; bit(s) "V_Counter_value[15..10]" have no fanouts ;
++-----------------+--------+----------+----------------------------------------------------------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "vga_controller:vga|horizontal_counter:VGA_Horiz"                                                                                                  ;
++-----------------+--------+----------+----------------------------------------------------------------------------------------------------------------------------------------+
+; Port            ; Type   ; Severity ; Details                                                                                                                                ;
++-----------------+--------+----------+----------------------------------------------------------------------------------------------------------------------------------------+
+; H_Counter_value ; Output ; Warning  ; Output or bidir port (16 bits) is wider than the port expression (10 bits) it drives; bit(s) "H_Counter_value[15..10]" have no fanouts ;
++-----------------+--------+----------+----------------------------------------------------------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Top Partition ;
++-----------------------+-----------------------------+
+; Type                  ; Count                       ;
++-----------------------+-----------------------------+
+; arriav_ff             ; 42                          ;
+;     ENA SCLR          ; 16                          ;
+;     SCLR              ; 16                          ;
+;     plain             ; 10                          ;
+; arriav_lcell_comb     ; 180                         ;
+;     arith             ; 32                          ;
+;         1 data inputs ; 32                          ;
+;     extend            ; 2                           ;
+;         7 data inputs ; 2                           ;
+;     normal            ; 126                         ;
+;         0 data inputs ; 1                           ;
+;         1 data inputs ; 3                           ;
+;         2 data inputs ; 6                           ;
+;         3 data inputs ; 41                          ;
+;         4 data inputs ; 20                          ;
+;         5 data inputs ; 22                          ;
+;         6 data inputs ; 33                          ;
+;     shared            ; 20                          ;
+;         1 data inputs ; 5                           ;
+;         2 data inputs ; 15                          ;
+; boundary_port         ; 47                          ;
+; stratixv_ram_block    ; 3                           ;
+;                       ;                             ;
+; Max LUT depth         ; 5.00                        ;
+; Average LUT depth     ; 3.15                        ;
++-----------------------+-----------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:01     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Analysis & Synthesis
+    Info: Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
+    Info: Processing started: Tue Oct 15 12:25:35 2019
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off vga_top -c vga_top
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20030): Parallel compilation is enabled and will use 2 of the 2 processors detected
+Info (12021): Found 1 design units, including 1 entities, in source file /users/dell/desktop/machine2/winner_detector.sv
+    Info (12023): Found entity 1: winner_detector File: C:/Users/DELL/Desktop/machine2/winner_detector.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file /users/dell/desktop/machine2/win_detector_tb.sv
+    Info (12023): Found entity 1: win_detector_tb File: C:/Users/DELL/Desktop/machine2/win_detector_tb.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file /users/dell/desktop/machine2/ttt_main_tb.sv
+    Info (12023): Found entity 1: ttt_main_tb File: C:/Users/DELL/Desktop/machine2/ttt_main_tb.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file /users/dell/desktop/machine2/ttt_main.sv
+    Info (12023): Found entity 1: ttt_main File: C:/Users/DELL/Desktop/machine2/ttt_main.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file /users/dell/desktop/machine2/position_register.sv
+    Info (12023): Found entity 1: position_register File: C:/Users/DELL/Desktop/machine2/position_register.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file /users/dell/desktop/machine2/position_decoder.sv
+    Info (12023): Found entity 1: position_decoder File: C:/Users/DELL/Desktop/machine2/position_decoder.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file /users/dell/desktop/machine2/pos_reg_tb.sv
+    Info (12023): Found entity 1: pos_reg_tb File: C:/Users/DELL/Desktop/machine2/pos_reg_tb.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file /users/dell/desktop/machine2/illegal_move_tb.sv
+    Info (12023): Found entity 1: illegal_move_tb File: C:/Users/DELL/Desktop/machine2/illegal_move_tb.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file /users/dell/desktop/machine2/illegal_move_checker.sv
+    Info (12023): Found entity 1: illegal_move_checker File: C:/Users/DELL/Desktop/machine2/illegal_move_checker.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file /users/dell/desktop/machine2/game_state_machine.sv
+    Info (12023): Found entity 1: game_state_machine File: C:/Users/DELL/Desktop/machine2/game_state_machine.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file /users/dell/desktop/machine2/draw_detector_tb.sv
+    Info (12023): Found entity 1: draw_detector_tb File: C:/Users/DELL/Desktop/machine2/draw_detector_tb.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file /users/dell/desktop/machine2/draw_detector.sv
+    Info (12023): Found entity 1: draw_detector File: C:/Users/DELL/Desktop/machine2/draw_detector.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file /users/dell/desktop/machine2/check_for_winner.sv
+    Info (12023): Found entity 1: check_for_winner File: C:/Users/DELL/Desktop/machine2/check_for_winner.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file /users/dell/desktop/sprite/rom_sprite_2.v
+    Info (12023): Found entity 1: rom_sprite_2 File: C:/Users/DELL/Desktop/sprite/rom_sprite_2.v Line: 39
+Info (12021): Found 1 design units, including 1 entities, in source file /users/dell/desktop/sprite/visiblelogic.sv
+    Info (12023): Found entity 1: visibleLogic File: C:/Users/DELL/Desktop/sprite/visibleLogic.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file /users/dell/desktop/sprite/rom_sprite.v
+    Info (12023): Found entity 1: rom_sprite File: C:/Users/DELL/Desktop/sprite/rom_sprite.v Line: 39
+Info (12021): Found 1 design units, including 1 entities, in source file /users/dell/desktop/sprite/deco.sv
+    Info (12023): Found entity 1: deco File: C:/Users/DELL/Desktop/sprite/deco.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file /users/dell/desktop/sprite/addressgen.sv
+    Info (12023): Found entity 1: addressGen File: C:/Users/DELL/Desktop/sprite/addressGen.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file vertical_counter.sv
+    Info (12023): Found entity 1: vertical_counter File: C:/Users/DELL/Desktop/VGA_Controller/vertical_counter.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file testbench_top.sv
+    Info (12023): Found entity 1: testbench_top File: C:/Users/DELL/Desktop/VGA_Controller/testbench_top.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file testbench_slowclock.sv
+    Info (12023): Found entity 1: testbench_slowclock File: C:/Users/DELL/Desktop/VGA_Controller/testbench_slowclock.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file synq.sv
+    Info (12023): Found entity 1: synq File: C:/Users/DELL/Desktop/VGA_Controller/synq.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file screen.sv
+    Info (12023): Found entity 1: screen File: C:/Users/DELL/Desktop/VGA_Controller/screen.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file lines.sv
+    Info (12023): Found entity 1: lines File: C:/Users/DELL/Desktop/VGA_Controller/lines.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file horizontal_counter.sv
+    Info (12023): Found entity 1: horizontal_counter File: C:/Users/DELL/Desktop/VGA_Controller/horizontal_counter.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file clock_divider_.sv
+    Info (12023): Found entity 1: clock_divider_ File: C:/Users/DELL/Desktop/VGA_Controller/clock_divider_.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file vga_controller.sv
+    Info (12023): Found entity 1: vga_controller File: C:/Users/DELL/Desktop/VGA_Controller/vga_controller.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file game_top.sv
+    Info (12023): Found entity 1: game_top File: C:/Users/DELL/Desktop/VGA_Controller/game_top.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file mux2.sv
+    Info (12023): Found entity 1: Mux2 File: C:/Users/DELL/Desktop/VGA_Controller/Mux2.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file position_adder.sv
+    Info (12023): Found entity 1: position_adder File: C:/Users/DELL/Desktop/VGA_Controller/position_adder.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file pos_adder_tb.sv
+    Info (12023): Found entity 1: pos_adder_tb File: C:/Users/DELL/Desktop/VGA_Controller/pos_adder_tb.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file /users/dell/desktop/sprite/sprite1_top.sv
+    Info (12023): Found entity 1: sprite1_top File: C:/Users/DELL/Desktop/sprite/sprite1_top.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file sprite2_top.sv
+    Info (12023): Found entity 1: sprite2_top File: C:/Users/DELL/Desktop/VGA_Controller/sprite2_top.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file mux4.sv
+    Info (12023): Found entity 1: mux4 File: C:/Users/DELL/Desktop/VGA_Controller/mux4.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file pos2px_tb.sv
+    Info (12023): Found entity 1: pos2px_tb File: C:/Users/DELL/Desktop/VGA_Controller/pos2px_tb.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file pos_to_pixelx.sv
+    Info (12023): Found entity 1: pos_to_pixelx File: C:/Users/DELL/Desktop/VGA_Controller/pos_to_pixelx.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file pos_to_pixely.sv
+    Info (12023): Found entity 1: pos_to_pixely File: C:/Users/DELL/Desktop/VGA_Controller/pos_to_pixely.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file sevenseg.sv
+    Info (12023): Found entity 1: sevenseg File: C:/Users/DELL/Desktop/VGA_Controller/sevenseg.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file game_top_tb.sv
+    Info (12023): Found entity 1: game_top_tb File: C:/Users/DELL/Desktop/VGA_Controller/game_top_tb.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file state_machine_tb.sv
+    Info (12023): Found entity 1: state_machine_tb File: C:/Users/DELL/Desktop/VGA_Controller/state_machine_tb.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file output_files/mux16.sv
+    Info (12023): Found entity 1: mux16 File: C:/Users/DELL/Desktop/VGA_Controller/output_files/mux16.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file counter.sv
+    Info (12023): Found entity 1: counter File: C:/Users/DELL/Desktop/VGA_Controller/counter.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file new_visible.sv
+    Info (12023): Found entity 1: new_visible File: C:/Users/DELL/Desktop/VGA_Controller/new_visible.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file new_vis_tb.sv
+    Info (12023): Found entity 1: new_vis_tb File: C:/Users/DELL/Desktop/VGA_Controller/new_vis_tb.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file or_visible.sv
+    Info (12023): Found entity 1: or_visible File: C:/Users/DELL/Desktop/VGA_Controller/or_visible.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file pos_to_sprite.sv
+    Info (12023): Found entity 1: pos_to_sprite File: C:/Users/DELL/Desktop/VGA_Controller/pos_to_sprite.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file counter_range_xy.sv
+    Info (12023): Found entity 1: counter_range_xy File: C:/Users/DELL/Desktop/VGA_Controller/counter_range_xy.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file sp_and_vis.sv
+    Info (12023): Found entity 1: sp_and_vis File: C:/Users/DELL/Desktop/VGA_Controller/sp_and_vis.sv Line: 1
+Info (12127): Elaborating entity "game_top" for the top level hierarchy
+Info (12128): Elaborating entity "vga_controller" for hierarchy "vga_controller:vga" File: C:/Users/DELL/Desktop/VGA_Controller/game_top.sv Line: 86
+Info (12128): Elaborating entity "clock_divider_" for hierarchy "vga_controller:vga|clock_divider_:VGA_Clock" File: C:/Users/DELL/Desktop/VGA_Controller/vga_controller.sv Line: 10
+Info (12128): Elaborating entity "horizontal_counter" for hierarchy "vga_controller:vga|horizontal_counter:VGA_Horiz" File: C:/Users/DELL/Desktop/VGA_Controller/vga_controller.sv Line: 13
+Warning (10230): Verilog HDL assignment warning at horizontal_counter.sv(6): truncated value with size 32 to match size of target (16) File: C:/Users/DELL/Desktop/VGA_Controller/horizontal_counter.sv Line: 6
+Info (12128): Elaborating entity "vertical_counter" for hierarchy "vga_controller:vga|vertical_counter:VGA_Verti" File: C:/Users/DELL/Desktop/VGA_Controller/vga_controller.sv Line: 14
+Warning (10230): Verilog HDL assignment warning at vertical_counter.sv(6): truncated value with size 32 to match size of target (16) File: C:/Users/DELL/Desktop/VGA_Controller/vertical_counter.sv Line: 6
+Info (12128): Elaborating entity "synq" for hierarchy "vga_controller:vga|synq:VGA_Synq" File: C:/Users/DELL/Desktop/VGA_Controller/vga_controller.sv Line: 17
+Info (12128): Elaborating entity "position_adder" for hierarchy "position_adder:pos_adder" File: C:/Users/DELL/Desktop/VGA_Controller/game_top.sv Line: 88
+Info (12128): Elaborating entity "Mux2" for hierarchy "Mux2:mux2" File: C:/Users/DELL/Desktop/VGA_Controller/game_top.sv Line: 90
+Info (12128): Elaborating entity "sevenseg" for hierarchy "sevenseg:display_deco" File: C:/Users/DELL/Desktop/VGA_Controller/game_top.sv Line: 92
+Info (12128): Elaborating entity "counter_range_xy" for hierarchy "counter_range_xy:counter_xy" File: C:/Users/DELL/Desktop/VGA_Controller/game_top.sv Line: 100
+Warning (10240): Verilog HDL Always Construct warning at counter_range_xy.sv(4): inferring latch(es) for variable "posx", which holds its previous value in one or more paths through the always construct File: C:/Users/DELL/Desktop/VGA_Controller/counter_range_xy.sv Line: 4
+Warning (10240): Verilog HDL Always Construct warning at counter_range_xy.sv(4): inferring latch(es) for variable "posy", which holds its previous value in one or more paths through the always construct File: C:/Users/DELL/Desktop/VGA_Controller/counter_range_xy.sv Line: 4
+Info (10041): Inferred latch for "posy[0]" at counter_range_xy.sv(4) File: C:/Users/DELL/Desktop/VGA_Controller/counter_range_xy.sv Line: 4
+Info (10041): Inferred latch for "posy[1]" at counter_range_xy.sv(4) File: C:/Users/DELL/Desktop/VGA_Controller/counter_range_xy.sv Line: 4
+Info (10041): Inferred latch for "posy[2]" at counter_range_xy.sv(4) File: C:/Users/DELL/Desktop/VGA_Controller/counter_range_xy.sv Line: 4
+Info (10041): Inferred latch for "posy[3]" at counter_range_xy.sv(4) File: C:/Users/DELL/Desktop/VGA_Controller/counter_range_xy.sv Line: 4
+Info (10041): Inferred latch for "posy[4]" at counter_range_xy.sv(4) File: C:/Users/DELL/Desktop/VGA_Controller/counter_range_xy.sv Line: 4
+Info (10041): Inferred latch for "posy[5]" at counter_range_xy.sv(4) File: C:/Users/DELL/Desktop/VGA_Controller/counter_range_xy.sv Line: 4
+Info (10041): Inferred latch for "posy[6]" at counter_range_xy.sv(4) File: C:/Users/DELL/Desktop/VGA_Controller/counter_range_xy.sv Line: 4
+Info (10041): Inferred latch for "posy[7]" at counter_range_xy.sv(4) File: C:/Users/DELL/Desktop/VGA_Controller/counter_range_xy.sv Line: 4
+Info (10041): Inferred latch for "posy[8]" at counter_range_xy.sv(4) File: C:/Users/DELL/Desktop/VGA_Controller/counter_range_xy.sv Line: 4
+Info (10041): Inferred latch for "posy[9]" at counter_range_xy.sv(4) File: C:/Users/DELL/Desktop/VGA_Controller/counter_range_xy.sv Line: 4
+Info (10041): Inferred latch for "posx[0]" at counter_range_xy.sv(4) File: C:/Users/DELL/Desktop/VGA_Controller/counter_range_xy.sv Line: 4
+Info (10041): Inferred latch for "posx[1]" at counter_range_xy.sv(4) File: C:/Users/DELL/Desktop/VGA_Controller/counter_range_xy.sv Line: 4
+Info (10041): Inferred latch for "posx[2]" at counter_range_xy.sv(4) File: C:/Users/DELL/Desktop/VGA_Controller/counter_range_xy.sv Line: 4
+Info (10041): Inferred latch for "posx[3]" at counter_range_xy.sv(4) File: C:/Users/DELL/Desktop/VGA_Controller/counter_range_xy.sv Line: 4
+Info (10041): Inferred latch for "posx[4]" at counter_range_xy.sv(4) File: C:/Users/DELL/Desktop/VGA_Controller/counter_range_xy.sv Line: 4
+Info (10041): Inferred latch for "posx[5]" at counter_range_xy.sv(4) File: C:/Users/DELL/Desktop/VGA_Controller/counter_range_xy.sv Line: 4
+Info (10041): Inferred latch for "posx[6]" at counter_range_xy.sv(4) File: C:/Users/DELL/Desktop/VGA_Controller/counter_range_xy.sv Line: 4
+Info (10041): Inferred latch for "posx[7]" at counter_range_xy.sv(4) File: C:/Users/DELL/Desktop/VGA_Controller/counter_range_xy.sv Line: 4
+Info (10041): Inferred latch for "posx[8]" at counter_range_xy.sv(4) File: C:/Users/DELL/Desktop/VGA_Controller/counter_range_xy.sv Line: 4
+Info (10041): Inferred latch for "posx[9]" at counter_range_xy.sv(4) File: C:/Users/DELL/Desktop/VGA_Controller/counter_range_xy.sv Line: 4
+Info (12128): Elaborating entity "pos_to_sprite" for hierarchy "pos_to_sprite:pos_sprite" File: C:/Users/DELL/Desktop/VGA_Controller/game_top.sv Line: 111
+Info (12128): Elaborating entity "sprite1_top" for hierarchy "sprite1_top:sprite_player1" File: C:/Users/DELL/Desktop/VGA_Controller/game_top.sv Line: 113
+Info (12128): Elaborating entity "rom_sprite" for hierarchy "sprite1_top:sprite_player1|rom_sprite:ROM" File: C:/Users/DELL/Desktop/sprite/sprite1_top.sv Line: 9
+Info (12128): Elaborating entity "altsyncram" for hierarchy "sprite1_top:sprite_player1|rom_sprite:ROM|altsyncram:altsyncram_component" File: C:/Users/DELL/Desktop/sprite/rom_sprite.v Line: 81
+Info (12130): Elaborated megafunction instantiation "sprite1_top:sprite_player1|rom_sprite:ROM|altsyncram:altsyncram_component" File: C:/Users/DELL/Desktop/sprite/rom_sprite.v Line: 81
+Info (12133): Instantiated megafunction "sprite1_top:sprite_player1|rom_sprite:ROM|altsyncram:altsyncram_component" with the following parameter: File: C:/Users/DELL/Desktop/sprite/rom_sprite.v Line: 81
+    Info (12134): Parameter "address_aclr_a" = "NONE"
+    Info (12134): Parameter "clock_enable_input_a" = "BYPASS"
+    Info (12134): Parameter "clock_enable_output_a" = "BYPASS"
+    Info (12134): Parameter "init_file" = "C:/Users/DELL/Desktop/Player1.mif"
+    Info (12134): Parameter "intended_device_family" = "Cyclone V"
+    Info (12134): Parameter "lpm_hint" = "ENABLE_RUNTIME_MOD=NO"
+    Info (12134): Parameter "lpm_type" = "altsyncram"
+    Info (12134): Parameter "numwords_a" = "4096"
+    Info (12134): Parameter "operation_mode" = "ROM"
+    Info (12134): Parameter "outdata_aclr_a" = "NONE"
+    Info (12134): Parameter "outdata_reg_a" = "UNREGISTERED"
+    Info (12134): Parameter "widthad_a" = "12"
+    Info (12134): Parameter "width_a" = "3"
+    Info (12134): Parameter "width_byteena_a" = "1"
+Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_5bi1.tdf
+    Info (12023): Found entity 1: altsyncram_5bi1 File: C:/Users/DELL/Desktop/VGA_Controller/db/altsyncram_5bi1.tdf Line: 27
+Info (12128): Elaborating entity "altsyncram_5bi1" for hierarchy "sprite1_top:sprite_player1|rom_sprite:ROM|altsyncram:altsyncram_component|altsyncram_5bi1:auto_generated" File: d:/programs/quartus/quartus/libraries/megafunctions/altsyncram.tdf Line: 791
+Info (12128): Elaborating entity "deco" for hierarchy "sprite1_top:sprite_player1|deco:DECO" File: C:/Users/DELL/Desktop/sprite/sprite1_top.sv Line: 11
+Info (12128): Elaborating entity "addressGen" for hierarchy "sprite1_top:sprite_player1|addressGen:ADDRESSS" File: C:/Users/DELL/Desktop/sprite/sprite1_top.sv Line: 15
+Info (12128): Elaborating entity "visibleLogic" for hierarchy "sprite1_top:sprite_player1|visibleLogic:VIS" File: C:/Users/DELL/Desktop/sprite/sprite1_top.sv Line: 17
+Info (12128): Elaborating entity "sprite2_top" for hierarchy "sprite2_top:sprite_player2" File: C:/Users/DELL/Desktop/VGA_Controller/game_top.sv Line: 115
+Info (12128): Elaborating entity "rom_sprite_2" for hierarchy "sprite2_top:sprite_player2|rom_sprite_2:ROM" File: C:/Users/DELL/Desktop/VGA_Controller/sprite2_top.sv Line: 9
+Info (12128): Elaborating entity "altsyncram" for hierarchy "sprite2_top:sprite_player2|rom_sprite_2:ROM|altsyncram:altsyncram_component" File: C:/Users/DELL/Desktop/sprite/rom_sprite_2.v Line: 81
+Info (12130): Elaborated megafunction instantiation "sprite2_top:sprite_player2|rom_sprite_2:ROM|altsyncram:altsyncram_component" File: C:/Users/DELL/Desktop/sprite/rom_sprite_2.v Line: 81
+Info (12133): Instantiated megafunction "sprite2_top:sprite_player2|rom_sprite_2:ROM|altsyncram:altsyncram_component" with the following parameter: File: C:/Users/DELL/Desktop/sprite/rom_sprite_2.v Line: 81
+    Info (12134): Parameter "address_aclr_a" = "NONE"
+    Info (12134): Parameter "clock_enable_input_a" = "BYPASS"
+    Info (12134): Parameter "clock_enable_output_a" = "BYPASS"
+    Info (12134): Parameter "init_file" = "C:/Users/DELL/Desktop/Player2.mif"
+    Info (12134): Parameter "intended_device_family" = "Cyclone V"
+    Info (12134): Parameter "lpm_hint" = "ENABLE_RUNTIME_MOD=NO"
+    Info (12134): Parameter "lpm_type" = "altsyncram"
+    Info (12134): Parameter "numwords_a" = "4096"
+    Info (12134): Parameter "operation_mode" = "ROM"
+    Info (12134): Parameter "outdata_aclr_a" = "NONE"
+    Info (12134): Parameter "outdata_reg_a" = "UNREGISTERED"
+    Info (12134): Parameter "widthad_a" = "12"
+    Info (12134): Parameter "width_a" = "3"
+    Info (12134): Parameter "width_byteena_a" = "1"
+Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_6bi1.tdf
+    Info (12023): Found entity 1: altsyncram_6bi1 File: C:/Users/DELL/Desktop/VGA_Controller/db/altsyncram_6bi1.tdf Line: 27
+Info (12128): Elaborating entity "altsyncram_6bi1" for hierarchy "sprite2_top:sprite_player2|rom_sprite_2:ROM|altsyncram:altsyncram_component|altsyncram_6bi1:auto_generated" File: d:/programs/quartus/quartus/libraries/megafunctions/altsyncram.tdf Line: 791
+Info (12128): Elaborating entity "sp_and_vis" for hierarchy "sp_and_vis:spvis1" File: C:/Users/DELL/Desktop/VGA_Controller/game_top.sv Line: 117
+Info (12128): Elaborating entity "screen" for hierarchy "screen:VGA_screen" File: C:/Users/DELL/Desktop/VGA_Controller/game_top.sv Line: 120
+Info (12128): Elaborating entity "lines" for hierarchy "screen:VGA_screen|lines:VGA_lines" File: C:/Users/DELL/Desktop/VGA_Controller/screen.sv Line: 5
+Info (12128): Elaborating entity "mux4" for hierarchy "mux4:mux_4" File: C:/Users/DELL/Desktop/VGA_Controller/game_top.sv Line: 129
+Warning (14284): Synthesized away the following node(s):
+    Warning (14285): Synthesized away the following RAM node(s):
+        Warning (14320): Synthesized away node "sprite2_top:sprite_player2|rom_sprite_2:ROM|altsyncram:altsyncram_component|altsyncram_6bi1:auto_generated|q_a[0]" File: C:/Users/DELL/Desktop/VGA_Controller/db/altsyncram_6bi1.tdf Line: 34
+        Warning (14320): Synthesized away node "sprite2_top:sprite_player2|rom_sprite_2:ROM|altsyncram:altsyncram_component|altsyncram_6bi1:auto_generated|q_a[1]" File: C:/Users/DELL/Desktop/VGA_Controller/db/altsyncram_6bi1.tdf Line: 55
+        Warning (14320): Synthesized away node "sprite2_top:sprite_player2|rom_sprite_2:ROM|altsyncram:altsyncram_component|altsyncram_6bi1:auto_generated|q_a[2]" File: C:/Users/DELL/Desktop/VGA_Controller/db/altsyncram_6bi1.tdf Line: 76
+Warning (12241): 6 hierarchies have connectivity warnings - see the Connectivity Checks report folder
+Warning (13024): Output pins are stuck at VCC or GND
+    Warning (13410): Pin "nsync" is stuck at VCC File: C:/Users/DELL/Desktop/VGA_Controller/game_top.sv Line: 1
+Info (286030): Timing-Driven Synthesis is running
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Warning (21074): Design contains 7 input pin(s) that do not drive logic
+    Warning (15610): No output dependent on input pin "reset" File: C:/Users/DELL/Desktop/VGA_Controller/game_top.sv Line: 1
+    Warning (15610): No output dependent on input pin "start_pulse" File: C:/Users/DELL/Desktop/VGA_Controller/game_top.sv Line: 1
+    Warning (15610): No output dependent on input pin "assign_pulse" File: C:/Users/DELL/Desktop/VGA_Controller/game_top.sv Line: 1
+    Warning (15610): No output dependent on input pin "mux_ctrl[0]" File: C:/Users/DELL/Desktop/VGA_Controller/game_top.sv Line: 1
+    Warning (15610): No output dependent on input pin "mux_ctrl[1]" File: C:/Users/DELL/Desktop/VGA_Controller/game_top.sv Line: 1
+    Warning (15610): No output dependent on input pin "mux_ctrl[2]" File: C:/Users/DELL/Desktop/VGA_Controller/game_top.sv Line: 1
+    Warning (15610): No output dependent on input pin "mux_ctrl[3]" File: C:/Users/DELL/Desktop/VGA_Controller/game_top.sv Line: 1
+Info (21057): Implemented 228 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 11 input pins
+    Info (21059): Implemented 36 output pins
+    Info (21061): Implemented 178 logic cells
+    Info (21064): Implemented 3 RAM segments
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 21 warnings
+    Info: Peak virtual memory: 4823 megabytes
+    Info: Processing ended: Tue Oct 15 12:26:04 2019
+    Info: Elapsed time: 00:00:29
+    Info: Total CPU time (on all processors): 00:01:02
+
+

@@ -1,0 +1,7 @@
+
+State Machine - |game_top|ttt_main:game_top|game_state_machine:ttt_state_machine|current_state
+Name current_state.GAME_OVER current_state.PLAYER2 current_state.PLAYER1 current_state.IDLE 
+current_state.IDLE 0 0 0 0 
+current_state.PLAYER1 0 0 1 1 
+current_state.PLAYER2 0 1 0 1 
+current_state.GAME_OVER 1 0 0 1 

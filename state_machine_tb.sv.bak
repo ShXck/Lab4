@@ -1,0 +1,6 @@
+module state_machine_tb();
+
+logic clock, reset, player1_enable, player2_enable, illegal_move, draw, is_over;
+logic player1_turn, player2_turn;
+
+game_state_machine machine(clock, reset, player1_enable, player2_enable, illegal_move, draw, is_over, player1_turn, player2_turn);

@@ -1,0 +1,26 @@
+module pos_to_pixel(input logic [3:0] player_pos, output logic [9:0] pixx, pixy);
+
+always_comb
+	case(player_pos)
+		0 : begin pixx <= 200; pixy <= 75 end;
+		1 : begin pixx <= 425; pixy <= 75 end;
+		2 : begin pixx <= 650; pixy <= 75 end;
+		
+		3 : begin pixx <= 200; pixy <= 300 end; 
+		4 : begin pixx <= 425; pixy <= 300 end;
+		5 : begin pixx <= 650; pixy <= 300 end; 
+		
+		6 : begin pixx <= 200; pixy <= 525 end;
+		7 : begin pixx <= 425; pixy <= 525 end; 	
+		8 : begin pixx <= 650; pixy <= 525 end; 
+		
+		default begin pixx <= 0; pixy <= 0 end;
+	endcase
+	
+endmodule
+
+
+// Pos1: 200x 75y	    Pos2: 425x 75y    Pos3: 650x 75y 
+// Pos4: 200x 300y	    Pos5: 425x 300y    Pos6: 650x 300y 
+// Pos7: 200x 550y	    Pos8: 425x 525y    Pos3: 650x 525y 
+

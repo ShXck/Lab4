@@ -1,0 +1,13 @@
+module new_visible(input logic sprite_visible, input logic[1:0] player, pos, input logic [9:0] pixx, pixy, posx, posy, output logic new_visible);
+
+logic in_range;
+
+logic is_player_visible;
+
+assign in_range = (pixx < posx && pixy < posy);
+
+assign is_player_visible = (pos == player);
+
+assign new_visible = sprite_visible && in_range && is_player_visible; 
+
+endmodule

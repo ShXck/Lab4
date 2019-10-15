@@ -1,0 +1,3 @@
+module sprite_vga(input logic clock);
+
+endmodule

@@ -1,0 +1,154 @@
+# -------------------------------------------------------------------------- #
+#
+# Copyright (C) 2018  Intel Corporation. All rights reserved.
+# Your use of Intel Corporation's design tools, logic functions 
+# and other software and tools, and its AMPP partner logic 
+# functions, and any output files from any of the foregoing 
+# (including device programming or simulation files), and any 
+# associated documentation or information are expressly subject 
+# to the terms and conditions of the Intel Program License 
+# Subscription Agreement, the Intel Quartus Prime License Agreement,
+# the Intel FPGA IP License Agreement, or other applicable license
+# agreement, including, without limitation, that your use is for
+# the sole purpose of programming logic devices manufactured by
+# Intel and sold by Intel or its authorized distributors.  Please
+# refer to the applicable agreement for further details.
+#
+# -------------------------------------------------------------------------- #
+#
+# Quartus Prime
+# Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
+# Date created = 18:10:43  October 06, 2019
+#
+# -------------------------------------------------------------------------- #
+#
+# Notes:
+#
+# 1) The default values for assignments are stored in the file:
+#		vga_top_assignment_defaults.qdf
+#    If this file doesn't exist, see file:
+#		assignment_defaults.qdf
+#
+# 2) Altera recommends that you do not modify this file. This
+#    file is updated automatically by the Quartus Prime software
+#    and any changes you make may be lost or overwritten.
+#
+# -------------------------------------------------------------------------- #
+
+
+set_global_assignment -name FAMILY "Cyclone V"
+set_global_assignment -name DEVICE 5CSEMA5F31C6
+set_global_assignment -name TOP_LEVEL_ENTITY game_top
+set_global_assignment -name ORIGINAL_QUARTUS_VERSION 18.1.0
+set_global_assignment -name PROJECT_CREATION_TIME_DATE "18:10:43  OCTOBER 06, 2019"
+set_global_assignment -name LAST_QUARTUS_VERSION "18.1.0 Lite Edition"
+set_global_assignment -name PROJECT_OUTPUT_DIRECTORY output_files
+set_global_assignment -name ERROR_CHECK_FREQUENCY_DIVISOR 256
+set_global_assignment -name MIN_CORE_JUNCTION_TEMP 0
+set_global_assignment -name MAX_CORE_JUNCTION_TEMP 85
+set_global_assignment -name POWER_PRESET_COOLING_SOLUTION "23 MM HEAT SINK WITH 200 LFPM AIRFLOW"
+set_global_assignment -name POWER_BOARD_THERMAL_MODEL "NONE (CONSERVATIVE)"
+set_location_assignment PIN_A13 -to Red[0]
+set_location_assignment PIN_C13 -to Red[1]
+set_location_assignment PIN_B12 -to Red[3]
+set_global_assignment -name BOARD "DE1-SoC Board"
+set_location_assignment PIN_E13 -to Red[2]
+set_location_assignment PIN_C12 -to Red[4]
+set_location_assignment PIN_D12 -to Red[5]
+set_location_assignment PIN_E12 -to Red[6]
+set_location_assignment PIN_F13 -to Red[7]
+set_location_assignment PIN_J9 -to Green[0]
+set_location_assignment PIN_J10 -to Green[1]
+set_location_assignment PIN_H12 -to Green[2]
+set_location_assignment PIN_G10 -to Green[3]
+set_location_assignment PIN_G11 -to Green[4]
+set_location_assignment PIN_G12 -to Green[5]
+set_location_assignment PIN_F11 -to Green[6]
+set_location_assignment PIN_E11 -to Green[7]
+set_location_assignment PIN_B13 -to Blue[0]
+set_location_assignment PIN_G13 -to Blue[1]
+set_location_assignment PIN_H13 -to Blue[2]
+set_location_assignment PIN_F14 -to Blue[3]
+set_location_assignment PIN_H14 -to Blue[4]
+set_location_assignment PIN_F15 -to Blue[5]
+set_location_assignment PIN_G15 -to Blue[6]
+set_location_assignment PIN_J14 -to Blue[7]
+set_location_assignment PIN_C10 -to nsync
+set_location_assignment PIN_D11 -to Vsynq
+set_location_assignment PIN_F10 -to blank
+set_location_assignment PIN_B11 -to Hsynq
+set_location_assignment PIN_A11 -to clk_25M
+set_location_assignment PIN_AF14 -to clock
+set_global_assignment -name EDA_SIMULATION_TOOL "ModelSim-Altera (SystemVerilog)"
+set_global_assignment -name EDA_OUTPUT_DATA_FORMAT "SYSTEMVERILOG HDL" -section_id eda_simulation
+set_location_assignment PIN_AE12 -to start_pulse
+set_location_assignment PIN_AA14 -to reset
+set_location_assignment PIN_Y16 -to move_pulse
+set_location_assignment PIN_W15 -to assign_pulse
+set_location_assignment PIN_AE26 -to display_pos[0]
+set_location_assignment PIN_AE27 -to display_pos[1]
+set_location_assignment PIN_AE28 -to display_pos[2]
+set_location_assignment PIN_AG27 -to display_pos[3]
+set_location_assignment PIN_AF28 -to display_pos[4]
+set_location_assignment PIN_AG28 -to display_pos[5]
+set_location_assignment PIN_AH28 -to display_pos[6]
+set_location_assignment PIN_AD10 -to player1
+set_location_assignment PIN_AC9 -to player2
+set_location_assignment PIN_Y21 -to player1_turn
+set_location_assignment PIN_W21 -to player2_turn
+set_global_assignment -name SYSTEMVERILOG_FILE ../machine2/winner_detector.sv
+set_global_assignment -name SYSTEMVERILOG_FILE ../machine2/win_detector_tb.sv
+set_global_assignment -name SYSTEMVERILOG_FILE ../machine2/ttt_main_tb.sv
+set_global_assignment -name SYSTEMVERILOG_FILE ../machine2/ttt_main.sv
+set_global_assignment -name SYSTEMVERILOG_FILE ../machine2/position_register.sv
+set_global_assignment -name SYSTEMVERILOG_FILE ../machine2/position_decoder.sv
+set_global_assignment -name SYSTEMVERILOG_FILE ../machine2/pos_reg_tb.sv
+set_global_assignment -name SYSTEMVERILOG_FILE ../machine2/illegal_move_tb.sv
+set_global_assignment -name SYSTEMVERILOG_FILE ../machine2/illegal_move_checker.sv
+set_global_assignment -name SYSTEMVERILOG_FILE ../machine2/game_state_machine.sv
+set_global_assignment -name SYSTEMVERILOG_FILE ../machine2/draw_detector_tb.sv
+set_global_assignment -name SYSTEMVERILOG_FILE ../machine2/draw_detector.sv
+set_global_assignment -name SYSTEMVERILOG_FILE ../machine2/check_for_winner.sv
+set_global_assignment -name VERILOG_FILE ../sprite/rom_sprite_2.v
+set_global_assignment -name SYSTEMVERILOG_FILE ../sprite/visibleLogic.sv
+set_global_assignment -name VERILOG_FILE ../sprite/rom_sprite.v
+set_global_assignment -name SYSTEMVERILOG_FILE ../sprite/deco.sv
+set_global_assignment -name SYSTEMVERILOG_FILE ../sprite/addressGen.sv
+set_global_assignment -name SYSTEMVERILOG_FILE vertical_counter.sv
+set_global_assignment -name SYSTEMVERILOG_FILE testbench_top.sv
+set_global_assignment -name SYSTEMVERILOG_FILE testbench_slowclock.sv
+set_global_assignment -name SYSTEMVERILOG_FILE synq.sv
+set_global_assignment -name SYSTEMVERILOG_FILE screen.sv
+set_global_assignment -name SYSTEMVERILOG_FILE lines.sv
+set_global_assignment -name SYSTEMVERILOG_FILE horizontal_counter.sv
+set_global_assignment -name SYSTEMVERILOG_FILE clock_divider_.sv
+set_global_assignment -name SYSTEMVERILOG_FILE vga_controller.sv
+set_global_assignment -name SYSTEMVERILOG_FILE game_top.sv
+set_global_assignment -name SYSTEMVERILOG_FILE Mux2.sv
+set_global_assignment -name SYSTEMVERILOG_FILE position_adder.sv
+set_global_assignment -name SYSTEMVERILOG_FILE pos_adder_tb.sv
+set_global_assignment -name SYSTEMVERILOG_FILE ../sprite/sprite1_top.sv
+set_global_assignment -name SYSTEMVERILOG_FILE sprite2_top.sv
+set_global_assignment -name SYSTEMVERILOG_FILE mux4.sv
+set_global_assignment -name SYSTEMVERILOG_FILE pos2px_tb.sv
+set_global_assignment -name SYSTEMVERILOG_FILE pos_to_pixelx.sv
+set_global_assignment -name SYSTEMVERILOG_FILE pos_to_pixely.sv
+set_global_assignment -name SYSTEMVERILOG_FILE sevenseg.sv
+set_global_assignment -name SYSTEMVERILOG_FILE game_top_tb.sv
+set_global_assignment -name SYSTEMVERILOG_FILE state_machine_tb.sv
+set_global_assignment -name SYSTEMVERILOG_FILE output_files/mux16.sv
+set_global_assignment -name SYSTEMVERILOG_FILE counter.sv
+set_location_assignment PIN_AB12 -to mux_ctrl[0]
+set_location_assignment PIN_AC12 -to mux_ctrl[1]
+set_location_assignment PIN_AF9 -to mux_ctrl[2]
+set_location_assignment PIN_AF10 -to mux_ctrl[3]
+set_global_assignment -name SYSTEMVERILOG_FILE new_visible.sv
+set_global_assignment -name SYSTEMVERILOG_FILE new_vis_tb.sv
+set_global_assignment -name SYSTEMVERILOG_FILE or_visible.sv
+set_global_assignment -name SYSTEMVERILOG_FILE pos_to_sprite.sv
+set_global_assignment -name SYSTEMVERILOG_FILE counter_range_xy.sv
+set_global_assignment -name SYSTEMVERILOG_FILE sp_and_vis.sv
+set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
+set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
+set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
+set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top

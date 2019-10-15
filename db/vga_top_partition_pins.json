@@ -1,0 +1,165 @@
+{
+	"partitions" : [
+		{
+			"name" : "Top",
+			"pins" : [
+				{
+					"name" : "Hsynq",
+					"strict" : false
+				},
+				{
+					"name" : "Vsynq",
+					"strict" : false
+				},
+				{
+					"name" : "blank",
+					"strict" : false
+				},
+				{
+					"name" : "clk_25M",
+					"strict" : false
+				},
+				{
+					"name" : "Red[0]",
+					"strict" : false
+				},
+				{
+					"name" : "Red[1]",
+					"strict" : false
+				},
+				{
+					"name" : "Red[2]",
+					"strict" : false
+				},
+				{
+					"name" : "Red[3]",
+					"strict" : false
+				},
+				{
+					"name" : "Red[4]",
+					"strict" : false
+				},
+				{
+					"name" : "Red[5]",
+					"strict" : false
+				},
+				{
+					"name" : "Red[6]",
+					"strict" : false
+				},
+				{
+					"name" : "Red[7]",
+					"strict" : false
+				},
+				{
+					"name" : "Green[0]",
+					"strict" : false
+				},
+				{
+					"name" : "Green[1]",
+					"strict" : false
+				},
+				{
+					"name" : "Green[2]",
+					"strict" : false
+				},
+				{
+					"name" : "Green[3]",
+					"strict" : false
+				},
+				{
+					"name" : "Green[4]",
+					"strict" : false
+				},
+				{
+					"name" : "Green[5]",
+					"strict" : false
+				},
+				{
+					"name" : "Green[6]",
+					"strict" : false
+				},
+				{
+					"name" : "Green[7]",
+					"strict" : false
+				},
+				{
+					"name" : "Blue[0]",
+					"strict" : false
+				},
+				{
+					"name" : "Blue[1]",
+					"strict" : false
+				},
+				{
+					"name" : "Blue[2]",
+					"strict" : false
+				},
+				{
+					"name" : "Blue[3]",
+					"strict" : false
+				},
+				{
+					"name" : "Blue[4]",
+					"strict" : false
+				},
+				{
+					"name" : "Blue[5]",
+					"strict" : false
+				},
+				{
+					"name" : "Blue[6]",
+					"strict" : false
+				},
+				{
+					"name" : "Blue[7]",
+					"strict" : false
+				},
+				{
+					"name" : "display_pos[0]",
+					"strict" : false
+				},
+				{
+					"name" : "display_pos[1]",
+					"strict" : false
+				},
+				{
+					"name" : "display_pos[2]",
+					"strict" : false
+				},
+				{
+					"name" : "display_pos[3]",
+					"strict" : false
+				},
+				{
+					"name" : "display_pos[4]",
+					"strict" : false
+				},
+				{
+					"name" : "display_pos[5]",
+					"strict" : false
+				},
+				{
+					"name" : "display_pos[6]",
+					"strict" : false
+				},
+				{
+					"name" : "player2",
+					"strict" : false
+				},
+				{
+					"name" : "clock",
+					"strict" : false
+				},
+				{
+					"name" : "player1",
+					"strict" : false
+				},
+				{
+					"name" : "move_pulse",
+					"strict" : false
+				}
+			]
+		}
+	]
+}

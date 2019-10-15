@@ -1,0 +1,3 @@
+module game_top(input logic clock, output logic Hsynq, Vsynq, blank, nsync,clk_25M,	output logic [7:0] Red, Green, Blue);
+
+endmodule

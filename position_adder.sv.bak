@@ -1,0 +1,12 @@
+module position_adder(input logic [3:0] player1_pos, player2_pos, input logic move_pulse, player1_enable, player2_enable, output logic [3:0] p1_new_pos, p2_new_pos);
+
+if(move_pulse && player1_enable) begin
+	if(player1_pos == 4'b1000) assign p1_new_pos = 4'b0000;
+	else assign p1_new_pos = player1_pos + 1'b1;
+	end
+else if(move_pulse && player2_enable) begin
+	if(player2_pos == 4'b1000) assign p2_new_pos = 4'b0000;
+	else assign p2_new_pos = player2_pos + 1'b1;
+	end
+	
+endmodule

@@ -1,0 +1,6 @@
+module or_visible(input logic new_visible_1, new_visible_2, new_visible_3, new_visible_4, 
+						new_visible_5, new_visible_6, new_visible_7, new_visible_8, new_visible_9, output logic visible_player);
+			
+assign visible_player = new_visible_1 || new_visible_2 || new_visible_3 || new_visible_4 || new_visible_5 || new_visible_6 || new_visible_7 || new_visible_8 || new_visible_9;
+						
+endmodule
