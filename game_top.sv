@@ -1,4 +1,4 @@
-module game_top(input logic clock, reset, player1, player2, start_pulse, move_pulse, assign_pulse, input logic[3:0] mux_ctrl, output logic Hsynq, Vsynq, blank, nsync, clk_25M, output logic [7:0] Red, Green, Blue, output logic [6:0] display_pos);
+module game_top(input logic clock, reset, player1, player2, start_pulse, move_pulse, assign_pulse, output logic Hsynq, Vsynq, blank, nsync, clk_25M, output logic [7:0] Red, Green, Blue, output logic [6:0] display_pos);
 
 // VGA
 logic [9:0] Hcounter, Vcounter, posx1, posy1, posx2, posy2, pixelx, pixely;
@@ -38,24 +38,27 @@ sevenseg display_deco(player_pos_turn, display_pos);
 
 //pos_to_pixelx pixelx_gen1(player_pos_turn, player1, posx1);
 //pos_to_pixely pixely_gen1(player_pos_turn, player1, posy1);
-//
+
 //pos_to_pixelx pixelx_gen2(player_pos_turn, player2, posx2);
 //pos_to_pixely pixely_gen2(player_pos_turn, player2, posy2);
 
-counter_range_xy counter_xy(Hcounter, Vcounter, posx1, posy1);
-
+counter_range_xy_p1 counter_xy1(Hcounter, Vcounter,pos1, pos2, pos3, pos4, pos5, pos6, pos7, pos8, pos9, posx1, posy1);
+counter_range_xy_p2 counter_xy2(Hcounter, Vcounter,pos1, pos2, pos3, pos4, pos5, pos6, pos7, pos8, pos9, posx2, posy2);
 
 //ttt_main game_top(clock, reset, player1, player2, assign_pulse, player1_pos, player2_pos, pos1, pos2, pos3, pos4, pos5, pos6, pos7, pos8, pos9, winner);
-
-//sprite1_top  sprite_player1(clock, posx1, posy1, Hcounter, Vcounter, Red_s, Green_s, Blue_s, visible_sp1);
-
-//sprite2_top  sprite_player2(clock, posx2, posy2, Hcounter, Vcounter, Red_ss, Green_ss, Blue_ss, visible_sp2);
 
 pos_to_sprite pos_sprite(pos1, pos2, pos3, pos4, pos5, pos6, pos7, pos8, pos9, sp1, sp2);
 
 sprite1_top  sprite_player1(clock, posx1, posy1, Hcounter, Vcounter, Red_s, Green_s, Blue_s, visible_sp1);
 
-sprite2_top  sprite_player2(clock, posx1, posy1, Hcounter, Vcounter, Red_ss, Green_ss, Blue_ss, visible_sp2);
+sprite2_top  sprite_player2(clock, posx2, posy2, Hcounter, Vcounter, Red_ss, Green_ss, Blue_ss, visible_sp2);
+
+//logic [17:0] pos_array;
+//assign {pos9, pos8, pos7, pos6, pos5, pos4, pos3, pos2, pos1} = pos_array;
+
+//rgb_mux_signal_controller rgb_mux(clock, reset, pos_array, rgb_mux_control);
+
+//sevenseg mux_ctrl_display(rgb_mux_control, display_ctrl);
 
 sp_and_vis spvis1(visible_sp1, sp1, print1);
 sp_and_vis spvis2(visible_sp2, sp2, print2);
@@ -66,11 +69,11 @@ assign {Red_m, Green_m, Blue_m} = RGB_screen;
 assign {Red_s, Green_s, Blue_s} = RGB_sprite1;
 assign {Red_ss, Green_ss, Blue_ss} = RGB_sprite2;
 
-assign {visible_sp2, visible_sp1} = rgb_mux_control;
-//assign {print2, print1} = rgb_mux_control;
+
+//assign {visible_sp2, visible_sp1} = rgb_mux_control;
+assign {print2, print1} = rgb_mux_control;
 
 mux4 mux_4(RGB_screen, RGB_sprite1, RGB_sprite2, 23'b0, rgb_mux_control, RGB);
-
 
 assign {Red, Green, Blue} = RGB;
 
