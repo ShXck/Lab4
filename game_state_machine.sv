@@ -1,4 +1,4 @@
-module game_state_machine(input logic clock, reset, player1_enable, player2_enable, illegal_move, draw, is_over, output logic player1_turn, player2_turn);
+module game_state_machine(input logic clock, reset, assign_pulse , start_pulse, player1_enable, player2_enable, illegal_move, draw, is_over, output logic player1_turn, player2_turn);
 
 parameter IDLE = 2'b00;
 parameter PLAYER1 = 2'b01;
@@ -31,7 +31,7 @@ always_ff @(*)
 				player1_turn <= 1'b1;
 				player2_turn <= 1'b0;
 				if(is_over == 1'b1 || draw == 1'b1) next_state <= GAME_OVER;
-				else if(illegal_move == 1'b0) next_state <= PLAYER2;
+				else if(illegal_move == 1'b0 && ~assign_pulse ) next_state <= PLAYER2;
 				else next_state <= IDLE;
 				end
 				
@@ -39,7 +39,7 @@ always_ff @(*)
 				player1_turn <= 1'b0;
 				player2_turn <= 1'b1;
 				if(is_over == 1'b1 || draw == 1'b1) next_state <= GAME_OVER;
-				else if(illegal_move == 1'b0) next_state <= PLAYER1;
+				else if(illegal_move == 1'b0 && ~assign_pulse ) next_state <= PLAYER1;
 				else next_state <= IDLE;
 				end
 				

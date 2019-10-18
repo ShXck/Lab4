@@ -3,6 +3,7 @@ module ttt_main(input logic clock,
 									 player1,
 									 player2,
 									 assign_pulse,
+									 start_pulse,
 			  input logic[3:0] player1_pos,
 									 player2_pos,
 			  output logic [1:0] pos1, pos2, pos3, pos4, pos5, pos6, pos7, pos8, pos9, winner);
@@ -15,7 +16,7 @@ logic illegal_move;
 logic win_signal;
 logic draw_signal;
 
-position_register pos_register(clock, reset, assign_pulse, player1_pos_deco_out, player2_pos_deco_out, illegal_move, pos1, pos2, pos3, pos4, pos5, pos6, pos7, pos8, pos9);
+position_register positions_register(clock, reset, assign_pulse, start_pulse, player1_pos_deco_out, player2_pos_deco_out, illegal_move, pos1, pos2, pos3, pos4, pos5, pos6, pos7, pos8, pos9);
 
 winner_detector win_detector(pos1, pos2, pos3, pos4, pos5, pos6, pos7, pos8, pos9, win_signal, winner);
 
@@ -26,7 +27,7 @@ illegal_move_checker illegal_detector(pos1, pos2, pos3, pos4, pos5, pos6, pos7, 
 
 draw_detector draw_detect(pos1, pos2, pos3, pos4, pos5, pos6, pos7, pos8, pos9, draw_signal);
 
-game_state_machine ttt_state_machine(clock, reset, player1, player2, illegal_move, draw_signal, win_signal, player1_enable, player2_enable); // TODO: REVISAR SALIDA PLAYER1_ENABLE, PLAYER2_ENABLE
+game_state_machine ttt_state_machine(clock, reset, assign_pulse, start_pulse, player1, player2, illegal_move, draw_signal, win_signal, player1_enable, player2_enable);
  
 endmodule
 					
