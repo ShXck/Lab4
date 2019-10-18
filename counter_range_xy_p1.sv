@@ -1,8 +1,8 @@
-module counter_range_xy_p1(input logic [9:0] pixelx, pixely,
+module counter_range_xy_p1(input logic clock, input logic [9:0] pixelx, pixely,
 								input logic [1:0] pos1, pos2, pos3, pos4, pos5, pos6, pos7, pos8, pos9,
 								output logic [9:0] posx, posy);
 								
-always @* begin
+always @(negedge clock) begin
 if(pixelx > 10'd96 && pixelx < 10'd345 && pixely > 10'd2 && pixely < 10'd177 && pos1 == 2'b01)
 	begin
 		 posx <= 10'd200;
